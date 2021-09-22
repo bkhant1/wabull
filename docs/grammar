@@ -1,0 +1,26 @@
+program: (declaration '\n'+)+
+
+declaration: 
+    variable
+    | argFunction
+    | kwargFunction
+
+variable:
+    name ':' expression 
+
+argFunction:
+    ...
+
+name: 
+    r'\w+'
+
+expression:
+    argFunctionCall
+    | kwargFunctionCall
+    | sizeLiteral
+    | variable
+    | ifThenElse
+    | bracketedExpression
+
+argFunctionCall:
+    expression name expression
